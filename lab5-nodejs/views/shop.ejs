@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main page</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body class="center">
+    <h1 style='color:black'>Welcome to my instruments store!</h1>
+
+    <% if (instruments.length>0)
+    {
+    %>
+
+    <table class="center">
+        <tr>
+        <th>Instrument</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    <% 
+    
+    for(let instrument of instruments) { %>
+        <tr>
+        <td> <%= instrument.name  %> </td>
+        <td> <%= Math.round(instrument.price*100)/100   %>$</td>
+        
+        <td>
+        <form action='/shopping_cart' method="POST">
+            <button>Add to cart 🛒</button>
+            <input type='hidden' name='instrument_id' value='<%= instrument.id %>'/>
+        </form>
+        </td>
+        </tr>
+    <% } %>
+
+        </table>
+        <form action='/shopping_cart'>
+            <button>Go to my cart ➡</button>    
+        </form>
+   <% } else
+   {
+    %>
+    <h2 style='color:red'>No items were found in the store</h2>
+    <% } %>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿@{ 
+
+    var rules_list = new List<string>();
+
+    if(IsPost)
+    {
+        //update rules stored in session
+        rules_list = (List<string>)Session["rules_list"];
+        rules_list.Add(Request["rule"]);
+        Session["rules_list"] = rules_list;
+
+        Response.Redirect("Rules.cshtml");
+
+    }
+    else{
+        if (Session["rules_list"] == null) { Session["rules_list"] = rules_list; }
+        rules_list = (List<string>)Session["rules_list"];
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <form method="POST" action="./Rules.cshtml">
+        <input name="rule" />
+        <button>Submit rule!</button>
+    </form>
+
+    <ol>
+        @foreach(var rule in rules_list)
+        {
+            <li>@rule</li>
+        }
+    </ol>
+    </body>
+</html>

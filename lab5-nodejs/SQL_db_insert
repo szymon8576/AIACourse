@@ -1,0 +1,5 @@
+insert into instruments values(1,'clarinet',998.99);
+insert into instruments values(2,'alto saxophone',1500);
+insert into instruments values(3,'trumpet',2000);
+insert into instruments values(4,'trombone',7000);
+insert into instruments values(5,'flute',17000);

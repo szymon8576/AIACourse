@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main page</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body class="center">
+    <h1>Your cart 🛒</h1>
+
+    <% if (purchaseSuccess) { %>
+        <h2 style='color:green'>Items purchased successfully!</h2>
+        <% }
+        if(purchaseFail||refreshFail)
+        {
+            %>
+        <h2 style='color:red'>Some items were bought by other users and are no longer available. The cart was adjusted.</h2>
+            <%
+            }
+      
+
+        if(cartCleared){
+            %>
+            <h2 style='color:green'>Cart cleared successfully!</h2>
+                <%
+        }
+        %>
+        
+    
+    <% if (instruments_in_cart.length>0) {
+        %>
+        <table class="center">
+            <tr>
+                <th>Instrument</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+
+            <%
+        let total=0;
+    for(let instrument of instruments_in_cart) { 
+        total+= +instrument.price;
+        %>
+        <tr>
+        <td> <%= instrument.name  %> </td>
+        <td> <%= Math.round(instrument.price*100)/100  %>$</td>
+        <td>
+        <form action='/shopping_cart_del_item' method="POST">
+    
+            <button>Delete item</button>
+            <input type='hidden' name='instrument_id' value='<%= instrument.id %>'/>
+    
+        </form>
+        </td>
+        </tr>
+        
+    <% }  %> 
+    
+</table> 
+<h2 style='color:rgb(35, 165, 79)'>Total: <%= Math.round(total*100)/100 %>$</h2>
+
+    <form action='/clear_shopping_cart' method="POST">
+        <button>Clear cart ❌</button>    
+    </form>
+
+    <form action='/finalize_shopping' method="POST">
+        <button>Make payment 💲</button>    
+    </form>
+
+    <%
+    }  
+    else {
+        %>
+            <h4>There are no items in your cart</h4>
+        <%
+    }
+    %>
+
+    <form action='/'>
+        <button>Go back to store ↩</button>    
+    </form>
+
+</body>
+</html>

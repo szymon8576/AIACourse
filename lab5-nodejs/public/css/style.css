@@ -1,0 +1,46 @@
+.center
+{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+body {
+    background: #BE93C5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #7BC6CC, #BE93C5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Trebuchet MS", sans-serif;
+  }
+
+th
+  {
+      border: 1px solid black;
+      height: 30px;
+      background-color: rgba(255,255,255,0.9);
+  }
+
+  td{
+    border: 1px solid black;
+    height: 30px; 
+    background-color: rgba(255,255,255,0.5);
+    
+  }
+
+  table{
+    width: 50%;
+    border: 1px solid black;
+
+  }
+
+  button{
+      margin: 5px;
+  }
+
+  h1{
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 40px;
+    letter-spacing: -2px;
+   
+  }
