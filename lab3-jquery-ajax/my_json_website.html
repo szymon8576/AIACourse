@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.getJSON("guitars.json", function (result) {
+
+                    for (var i = 0; i < Object.keys(result.Guitars.Guitar).length; i++) {
+                        $('#my_arr').append('<div>' + result.Guitars.Guitar[i].Brand + ' ... ' +
+                            result.Guitars.Guitar[i].Model + '</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <button>Get JSON data</button>
+    <h1>Guitars:</h1>
+    <div id='my_arr'></div>
+
+</body>
+
+</html>

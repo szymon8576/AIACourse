@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>Hello World!</h2>
+
+    <p id="my_message"></p>
+
+    <script>
+
+        function myDisplayer(text) {
+            document.getElementById("my_message").innerHTML = text;
+        }
+
+
+        function my_fun(url) {
+
+            let myPromise = new Promise(function (myResolve, myReject) {
+                var request = new XMLHttpRequest();
+                request.open('GET', url);
+                request.onload = function () {
+                    if (request.status == 200) {
+                        myResolve('Everything is OK, this is requestuested content: ' + request.response);
+                    }
+                    else {
+                        myReject('Something went wrong. Error number: ' + request.status +' - '+ request.statusText);
+                    }
+                };
+
+                request.onerror = function () {
+                    reject(Error("Network Error!"));
+                };
+
+                request.send();
+            });
+
+            myPromise.then(
+                function (value) { myDisplayer(value); },
+                function (error) { myDisplayer(error); }
+            );
+        }
+
+        my_fun("Styles.html");
+
+    </script>
+
+</body>
+
+</html>
