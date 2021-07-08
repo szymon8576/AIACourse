@@ -1,0 +1,19 @@
+[
+    {
+        "name":"Diana",
+        "description":"Cudowny pies",
+        "image":"https://media.tenor.com/images/cdfed1a6dcf16a9b1f84b21cdac076c4/tenor.gif",
+        "rating":15,
+        "id": 0,
+        "editable":false
+    },
+
+    {
+        "name":"Reksio",
+        "description":"Boska psina",
+        "image":"https://i.imgur.com/lAG1D7l.gif",
+        "rating":12,
+        "id": 1,
+        "editable":false
+    }
+]
